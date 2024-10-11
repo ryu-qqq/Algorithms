@@ -4,21 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class 큰수출력하기 {
+public class 보이는학생 {
 
-    public static List<Integer> solution(int[] arr){
-
+    public static int solution(int[] arr){
         List<Integer> list = new ArrayList<>();
-
         list.add(arr[0]);
 
-        for(int i =1; i< arr.length; i++){
-            if(arr[i] > arr[i - 1]){
-                list.add(arr[i]);
+        for(int i =1; i < arr.length; i++){
+
+            Integer i1 = list.get(list.size() - 1);
+            int i2 = arr[i];
+            if(i1 < i2){
+                list.add(i2);
             }
         }
 
-        return list;
+        return list.size();
     }
 
 
@@ -31,10 +32,7 @@ public class 큰수출력하기 {
             arr[i]=in.nextInt();
         }
 
-        List<Integer> list = solution(arr);
-        for(Integer integer : list){
-            System.out.print(integer + " ");
-        }
-
+        int answer =  solution(arr);
+        System.out.println(answer);
     }
 }
